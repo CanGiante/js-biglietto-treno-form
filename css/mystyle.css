@@ -1,0 +1,53 @@
+* {
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #b91750;
+  font-family: sans-serif;
+}
+
+h2 {
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  color: white;
+}
+
+section {
+  background-color: white;
+  padding: 10px 0;
+  width: 90%;
+  margin-bottom: 10px;
+}
+
+.modulo {
+  display: flex;
+  justify-content: space-around;
+}
+
+.calcola {
+  text-align: center;
+  margin-bottom: 50px;
+  padding-left: 300px;
+  padding-right: 300px;
+}
+
+.box-tuo-biglietto {
+  padding: 0px 20px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding-top: 100px;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}

@@ -2,11 +2,78 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mystyle.css">
     <title></title>
   </head>
 
   <body>
+
+
+
+    <main>
+
+      <div class="wrapper">
+
+
+        <h2>Calcola il prezzo del tuo biglietto</h2>
+
+        <section class="calcola">
+
+          <div class="modulo">
+
+            <div>
+              <label> Nome e Cognome </label>
+              <input id="form-nome" type="text">
+            </div>
+
+            <div>
+              <label> Km da percorrere </label>
+              <input id="form-km" type="number">
+            </div>
+
+            <div>
+              <label> Fascia di età </label>
+              <select id="form-eta">
+                <option value="maggiorenne"> Maggiorenne </option>
+                <option value="minorenne"> Minorenne </option>
+                <option value="over"> Over 65 </option>
+              </select>
+            </div>
+
+            <div>
+              <button id="form-genera"> Genera </button>
+              <button id="form-annulla"> Annulla </button>
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <h2 id="titolo-box-tuo-biglietto" class="hidden">il tuo biglietto</h2>
+
+        <section id="biglietto" class="hidden">
+
+          <div class="box-tuo-biglietto ">
+
+            <p>nome passeggero: <span id="bigl-nome"></span> </p>
+            <p>offerta: <span id="bigl-offerta"></span> </p>
+            <p>carrozza: <span id="bigl-carrozza"></span> </p>
+            <p>codice cp: <span id="bigl-codicecp"></span> </p>
+            <p>costo: <span id="bigl-costo"></span> </p>
+
+          </div>
+
+
+
+
+        </section>
+
+      </div>
+
+
+
+    </main>
 
     <script type="text/javascript" src="js/myscript.js"></script>
 

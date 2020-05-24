@@ -1,76 +1,85 @@
-//Variabile sezione tuo-biglietto
-var sezioneBiglietto = document.getElementById("biglietto");
-var titoloSezioneBiglietto = document.getElementById("titolo-box-tuo-biglietto");
+//Eventi
+var buttonGenera = document.getElementById("genera");
+var buttonAnnulla = document.getElementById("annulla");
 
-//Variabili form
-var buttonGenera = document.getElementById("form-genera");
-var buttonAnnulla = document.getElementById("form-annulla");
-var formNome = document.getElementById("form-nome");
-var formKm = document.getElementById("form-km");
-var formEta = document.getElementById("form-eta");
+//Variabili sezione "calcola"
+var inputNome = document.getElementById("input-nome");
+var inputKm = document.getElementById("input-km");
+var selectEta = document.getElementById("select-eta");
 
-//Elementi biglietto
-var biglNome = document.getElementById("bigl-nome");
-var biglCosto = document.getElementById("bigl-costo");
-var biglOfferta = document.getElementById("bigl-offerta");
-var biglCarrozza = document.getElementById("bigl-carrozza");
-var biglCodiceCp = document.getElementById("bigl-codicecp");
+//Variabili sezione "tuo-biglietto"
+var bigliettoGenerato = document.getElementById("biglietto-generato");
+var outputNome = document.getElementById("output-nome");
+var outputOfferta = document.getElementById("output-offerta");
+var outputCarrozza = document.getElementById("output-carrozza");
+var outputCodiceCp = document.getElementById("output-codice-cp");
+var outputCosto = document.getElementById("output-costo");
 
-//Variabili di appoggio
-var formKmValue;
-var formEtaValue;
 
 
 //Evento "Genera"
 buttonGenera.addEventListener("click",
-  function () {
+  function() {
 
-    formKmValue = formKm.value;
-    formEtaValue = formEta.value;
+    //genero degli alert in caso di dati mancanti o invalidi
+    if (inputNome.value == "" || !isNaN(inputNome.value)) {
+      alert("Inserisci il nome");
+    }
+    if (inputKm.value < 1) {
+      alert("Inserisci i km");
+    }
+    if (selectEta.value == "default") {
+      alert("Seleziona la fascia d'età");
+    }
 
-    //Calcolo il prezzo
-    var prezzo = formKmValue * 0.21;
-    var offerta = "Biglietto standard";
+    //calcolo il prezzo standard e assegno la rispettiva offerta, valida per la fascia d'età 18-65 anni ("Maggiorenne")
+    var prezzo = inputKm.value * 0.21;
+    var offerta = "Biglietto Standard";
 
-    //Calcolo i prezzi scontati
-    if (formEtaValue == "minorenne") {
+    //calcolo i prezzi scontati e assegno le rispettive offerte
+    if (selectEta.value == "minorenne") {
 
-      prezzo = prezzo - ( prezzo * 0.2 );
-      offerta = "Sconto under";
+      prezzo = prezzo - (prezzo * 0.2);
+      offerta = "Sconto Under";
 
-    } else if (formEtaValue == "over") {
+    } else if (selectEta.value == "over65") {
 
-      prezzo = prezzo - ( prezzo * 0.4 );
-      offerta = "Sconto over";
+      prezzo = prezzo - (prezzo * 0.4);
+      offerta = "Sconto Over";
 
     }
 
-    //Compilazione elementi biglietto
-    biglNome.innerHTML = formNome.value;
-    biglCosto.innerHTML = prezzo.toFixed(2) + " euro";
-    biglOfferta.innerHTML = offerta;
-    biglCarrozza.innerHTML = Math.floor(Math.random() * 20) + 1;
-    biglCodiceCp.innerHTML = Math.floor(Math.random() * 88888) + 11111;
+    //elementi "tuo-biglietto"
+    outputNome.innerHTML = inputNome.value;
+    outputOfferta.innerHTML = offerta;
+    outputCarrozza.innerHTML = Math.floor(Math.random() * 20) + 1;
+    outputCodiceCp.innerHTML = Math.floor(Math.random() * 80123) + 12345;
+    outputCosto.innerHTML = prezzo.toFixed(2);
 
-    //Mostro il biglietto
-    sezioneBiglietto.className = "visible";
-    titoloSezioneBiglietto.className = "visible";
+    //mostro il biglietto
+    bigliettoGenerato.className = "biglietto-generato visible";
 
   }
 );
 
 //Evento "Annulla"
 buttonAnnulla.addEventListener("click",
-  function () {
+  function() {
 
-    formNome.value = " ";
-    biglNome.innerHTML = " ";
-    formKm.value = " ";
-    formEta.value = "maggiorenne";
-    biglOfferta.innerHTML = " ";
-    biglCosto.innerHTML = " ";
-    biglCarrozza.innerHTML = " ";
-    biglCodiceCp.innerHTML = " ";
+    //elementi "calcola"
+    inputNome.value = "";
+    inputKm.value = "";
+    selectEta.value = "default";
+
+    //elementi "tuo-biglietto"
+    outputNome.innerHTML = "";
+    outputOfferta.innerHTML = "";
+    outputCarrozza.innerHTML = "";
+    outputCodiceCp.innerHTML = "";
+    outputCosto.innerHTML = "";
+
+    //nascondo il biglietto
+    bigliettoGenerato.className = "biglietto-generato hidden";
 
   }
 );

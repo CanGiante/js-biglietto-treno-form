@@ -1,48 +1,254 @@
-* {
+/* INIZIO RESET */
+*   {
+
+
   padding: 0;
-  margin: 0 auto;
+  margin: 0;
   box-sizing: border-box;
+
+
+}
+/* FINE RESET */
+
+
+/* INIZIO REGOLE GENERALI */
+html   {
+
+
+  font-size: 15px;
+
+
 }
 
-body {
+
+
+body   {
+
+
   background-color: #b91750;
   font-family: sans-serif;
+  padding-top: 5px;
+
+
 }
 
-h2 {
-  text-transform: uppercase;
-  margin-bottom: 5px;
+
+
+h1   {
+
+
+  margin-bottom: 15px;
+
+
+}
+
+
+
+h1,
+h2   {
+
+
+  text-align: center;
   color: white;
+  text-transform: uppercase;
+  font-size: 1.5em;
+
+
 }
 
-section {
+
+
+h3   {
+
+
+  text-transform: uppercase;
+  font-size: 1.1em;
+
+
+}
+
+
+
+h4 {
+
+
+  word-break: break-all;
+
+
+}
+
+
+
+input   {
+
+
+  text-align: center;
+
+
+}
+
+
+
+input, select   {
+
+
+  border: 2px solid rgba(215, 80, 40, 0.70);
+  border-radius: 4px;
+  padding: 3px;
+
+
+}
+
+
+
+/** inizio regole generali sezioni **/
+section   {
+
+
+  width: 80%;
+  margin: auto;
+  margin-bottom: 15px;
+
+
+}
+
+
+
+section > div:first-of-type   {
+
+
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+
+}
+/** fine regole generali sezioni **/
+/* FINE REGOLE GENERALI */
+
+
+
+/* INIZIO PRIMA SEZIONE */
+section.calcola > .interfaccia   {
+
+
+  height: 150px;
   background-color: white;
-  padding: 10px 0;
-  width: 90%;
-  margin-bottom: 10px;
-}
+  padding-left: 25%;
+  padding-right: 25%;
+  border-radius: 7.5px;
+  box-shadow: 3px 15px 15px 3px rgba(0,0,0,0.31);
+  -webkit-box-shadow: 5px 5px 20px 5px rgba(0,0,0,0.31);
+  -moz-box-shadow: 5px 5px 20px 5px rgba(0,0,0,0.31);
 
-.modulo {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
+
+
 }
 
-.calcola {
+
+
+.interfaccia label   {
+
+
+  display: block;
+  margin-bottom: 15px;
+  color: #b91750;
+  font-size: 0.8em;
+  font-weight: bold;
+
+
+}
+
+
+
+.interfaccia >
+.form-nome,
+.form-km,
+.form-eta   {
+
+
+  flex-basis: calc(100% / 3);
   text-align: center;
-  margin-bottom: 50px;
-  padding-left: 300px;
-  padding-right: 300px;
+
+
 }
 
-.box-tuo-biglietto {
-  padding: 0px 20px;
+
+
+.interfaccia > .eventi   {
+
+
+  margin-top: auto;
+
+
+}
+/* FINE PRIMA SEZIONE */
+
+
+
+/* INIZIO SECONDA SEZIONE */
+section.tuo-biglietto > .biglietto-generato   {
+
+
+  background-color: white;
+  padding-left: 15px;
+  padding-right: 15px;
+
+
 }
 
-.wrapper {
+
+
+.biglietto-generato > .dati-passeggero   {
+
+
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+
+  display: flex;
+  justify-content: flex-start;
+
+
+}
+
+
+
+.dati-passeggero .nome   {
+
+
+  height: 100px;
+  background-color: grey;
+  max-width: 70%;
+
+
+}
+
+
+
+.dati-passeggero div:nth-child(1n+1)   {
+
+
+  padding: 18px;
+
   display: flex;
   flex-direction: column;
-  padding-top: 100px;
+
+
 }
+
+
+
+.dati-passeggero  div span:nth-child(1n+1)  {
+
+
+  margin-top: auto;
+
+
+}
+/* FINE SECONDA SEZIONE */
+
 
 .hidden {
   display: none;
